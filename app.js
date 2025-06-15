@@ -1,4 +1,5 @@
 const express = require("express");
+require("dotenv").config();
 const session = require("express-session");
 const mongoose = require("mongoose");
 const MongoStore = require("connect-mongo");
@@ -8,10 +9,11 @@ const logger = require("./utils/logger");
 
 const app = express();
 
-mongoose.connect("mongodb://localhost:27017/todo_jest", {
+mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
+ymERdd4nyY8gUNaA;
 
 app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }));
