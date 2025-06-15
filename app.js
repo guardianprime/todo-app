@@ -19,11 +19,11 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(
   session({
-    secret: "secret123",
+    secret: process.env.SESSION_SECRET || "secret123",
     resave: false,
     saveUninitialized: false,
     store: MongoStore.create({
-      mongoUrl: "mongodb://localhost:27017/todo_jest",
+      mongoUrl: process.env.MONGODB_URI,
     }),
   })
 );
