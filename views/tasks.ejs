@@ -1,0 +1,28 @@
+
+<% include layout.ejs %>
+<a href="/auth/logout">Logout</a>
+<h2>Your Tasks</h2>
+<form method="POST" action="/tasks/new">
+  <input name="title" placeholder="Title" required>
+  <input name="description" placeholder="Description">
+  <button>Add Task</button>
+</form>
+
+<ul>
+<% tasks.forEach(task => { %>
+  <li>
+    <%= task.title %> - <%= task.status %>
+    <% if (task.status === 'pending') { %>
+      <form method="POST" action="/tasks/<%= task._id %>/complete" style="display:inline">
+        <button>Complete</button>
+      </form>
+    <% } %>
+    <form method="POST" action="/tasks/<%= task._id %>/delete" style="display:inline">
+      <button>Delete</button>
+    </form>
+  </li>
+<% }) %>
+</ul>
+
+<a href="/tasks?status=pending">Show Pending</a> |
+<a href="/tasks?status=completed">Show Completed</a>
