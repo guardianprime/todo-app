@@ -13,7 +13,6 @@ mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
-ymERdd4nyY8gUNaA;
 
 app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }));
