@@ -33,7 +33,6 @@ app.use("/tasks", taskRoutes);
 
 app.get("/", (req, res) => res.redirect("/tasks"));
 
-// Global error handler (should be after all routes)
 app.use((err, req, res, next) => {
   logger.error("Unhandled error", { error: err.message, stack: err.stack });
   res.status(err.status || 500);
