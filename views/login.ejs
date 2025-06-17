@@ -1,9 +1,9 @@
-
-<% include layout.ejs %>
+<%- include('partials/header') %>
 <h2>Login</h2>
 <form method="POST">
-  <input name="username" placeholder="Username" required>
-  <input name="password" type="password" placeholder="Password" required>
+  <input name="username" placeholder="Username" required />
+  <input name="password" type="password" placeholder="Password" required />
   <button>Login</button>
 </form>
 <a href="/auth/signup">Sign Up</a>
+<%- include('partials/footer') %>
